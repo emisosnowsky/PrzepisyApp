@@ -1,19 +1,19 @@
 package com.example.przepisyweb.controllers;
 
-import com.example.przepisyweb.database.NewUserDatabase;
+import com.example.przepisyweb.database.UserDatabase;
 import com.example.przepisyweb.models.User;
 import com.example.przepisyweb.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 public class UserRestController {
 
     private final UserService userService;
+
+    UserDatabase userDatabase = new UserDatabase();
 
     @Autowired
     public UserRestController(UserService userService) {
@@ -30,7 +30,7 @@ public class UserRestController {
         userService.setUser(user);
 
         //dodawanie uzytkownika do bazy
-        NewUserDatabase newUserDatabase = new NewUserDatabase(user);
+        userDatabase.addNewUser(user);
 
         return userService.getUser();
     }
@@ -41,8 +41,16 @@ public class UserRestController {
 
         String login = user.getLogin();
         String password = user.getPassword();
+        Boolean result;
 
         //sprawdzenie, czy w bazie wystepuja ten login z tym haslem
+        result = userDatabase.searchForUser(login, password);
+
+        if(result==true){
+            System.out.println("wszystko sie zgadza, happy wszyscy");
+        } else {
+            System.out.println("niestety nie ma takiego uzytkownika");
+        }
 
         response.setHeader("Access-Control-Allow-Origin", "*");
 

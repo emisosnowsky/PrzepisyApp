@@ -5,13 +5,16 @@ import com.example.przepisyweb.models.Recipe;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class NewRecipeDatabase {
-    Recipe recipe = new Recipe();
+public class RecipeDatabase {
 
-    public NewRecipeDatabase(Recipe recipe) {
+
+    public RecipeDatabase() {}
+
+
+    public void addNewRecipe(Recipe recipe) {
         MySqlConnect mysqlConnect = new MySqlConnect();
 
-        String query = " insert into recipe (title, description, image)"
+        String query = " insert into recipes.recipe (title, description, image)"
                 + " values (?, ?, ?)";
 
         try {
@@ -28,4 +31,6 @@ public class NewRecipeDatabase {
             mysqlConnect.disconnect();
         }
     }
+
+
 }

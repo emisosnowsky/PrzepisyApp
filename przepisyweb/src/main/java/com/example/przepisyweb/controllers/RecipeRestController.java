@@ -1,8 +1,7 @@
 package com.example.przepisyweb.controllers;
 
-import com.example.przepisyweb.database.NewRecipeDatabase;
+import com.example.przepisyweb.database.RecipeDatabase;
 import com.example.przepisyweb.models.Recipe;
-import com.example.przepisyweb.models.User;
 import com.example.przepisyweb.services.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 public class RecipeRestController {
 
     private final RecipeService recipeService;
+    RecipeDatabase recipeDatabase = new RecipeDatabase();
+
 
     @Autowired
     public RecipeRestController(RecipeService recipeService) {
@@ -26,10 +27,8 @@ public class RecipeRestController {
         //ominiecie zabezpieczen przegladarki
         response.setHeader("Access-Control-Allow-Origin", "*");
 
-        recipeService.setRecipe(recipe);
-
         //dodawanie przepisu do bazy
-        NewRecipeDatabase newRecipeDatabase = new NewRecipeDatabase(recipe);
+        recipeDatabase.addNewRecipe(recipe);
 
         return recipeService.getRecipe();
     }
