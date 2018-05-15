@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class UserRestController {
@@ -32,4 +34,22 @@ public class UserRestController {
 
         return userService.getUser();
     }
+
+    @CrossOrigin
+    @RequestMapping(value = "/logIn", method = RequestMethod.POST)
+    public User logInUser(@RequestBody User user, HttpServletResponse response) {
+
+        String login = user.getLogin();
+        String password = user.getPassword();
+
+        //sprawdzenie, czy w bazie wystepuja ten login z tym haslem
+
+        response.setHeader("Access-Control-Allow-Origin", "*");
+
+        return user;
+    }
+
+
+
+
 }
