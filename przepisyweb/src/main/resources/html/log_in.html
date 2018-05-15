@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="../css/app.css"/>
-    <script src="../js/addUser.js"></script>
-    <title>Strona glowna Przepisy</title>
+    <script src="../js/logIn.js"></script>
+
+    <title>Zaloguj sie</title>
 </head>
 <body>
 
@@ -29,30 +30,22 @@
     </div>
 </header>
 
-
 <!-- Page content -->
 <div class="w3-content" style="max-width:1100px">
-    <!-- About Section -->
-    <div class="w3-row w3-padding-64" id="about">
+    <div class="w3-container w3-padding-64" ng-controller="LogInController" ng-app="myApp">
+        <h1>Zaloguj sie</h1><br>
+        <p><input class="w3-input w3-padding-16" type="text" ng-model="login" placeholder="Login"></p>
+        <p><input class="w3-input w3-padding-16" type="password" ng-model="password" placeholder="Hasło"></p><br/>
+        <p>
+            <button ng-click="logIn()" type="submit">Zaloguj sie</button>
+        </p>
 
-        <div class="w3-col m6 w3-padding-large w3-hide-small">
-            <img src="https://www.w3schools.com/w3images/tablesetting2.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
-        </div>
+        <p>Nie masz konta?</p>
+        <a href="sign_in.html" class="w3-bar-item w3-button">Zarejestruj sie</a>
 
-        <div class="w3-col m6 w3-padding-large">
-            <h1 class="w3-center">Twoja strona z przepisami</h1><br>
-            <p class="w3-large">Witam na stronie <span class="w3-tag w3-light-grey">Przepisy</span>.
-                Możesz tutaj znaleźć interesujące Cię przepisy na pyszne dania. Ponadto, możesz również dodać przepis na dania, które Tobie udało się ugotować. Zapraszam do rejestracji do serwisu.</p>
-            <p class="w3-large w3-text-grey w3-hide-medium"></p>
-    </div>
+        <p>{{info}}</p>
+
     </div>
 </div>
-
-
-<!-- Footer -->
-<footer class="w3-center w3-light-grey w3-padding-32">
-    <p>@Copyright <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">Emilia Sosnowska</a></p>
-</footer>
-
 </body>
 </html>
