@@ -1,0 +1,50 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="../css/app.css"/>
+    <script src="../js/addUser.js"></script>
+
+    <title>Zarejestruj sie</title>
+</head>
+<body>
+
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+        <a href="index.html" class="w3-bar-item w3-button">Strona Glowna</a>
+        <!-- Right-sided navbar links. Hide them on small screens -->
+        <div class="w3-right w3-hide-small">
+            <a href="sign_in.html" class="w3-bar-item w3-button">Zaloguj</a>
+            <a href="add_recipe.html" class="w3-bar-item w3-button">Dodaj Przepis</a>
+        </div>
+    </div>
+</div>
+
+<header class="w3-display-container w3-content w3-wide" style="max-width:1100px;min-width:500px" id="home">
+    <img class="w3-image" src="../images/hamburger.jpg" alt="Hamburger Catering" width="1600" height="800">
+    <div class="w3-display-bottomleft w3-padding-large w3-opacity">
+        <h1 class="w3-xxlarge">Przepisy</h1>
+    </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:1100px">
+    <div class="w3-container w3-padding-64" ng-controller="SignInController" ng-app="myApp">
+        <h1>Zarejestruj sie</h1><br>
+        <p><input class="w3-input w3-padding-16" type="text" ng-model="firstname" placeholder="Imie"></p>
+        <p><input class="w3-input w3-padding-16" type="text" ng-model="lastname" placeholder="Nazwisko"></p>
+        <p><input class="w3-input w3-padding-16" type="text" ng-model="login" placeholder="Login"></p>
+        <p><input class="w3-input w3-padding-16" type="text" ng-model="email" placeholder="Email"></p>
+        <p><input class="w3-input w3-padding-16" type="password" ng-model="password" placeholder="Hasło"></p><br/>
+        <p>
+            <button ng-click="signIn()" type="submit">Zarejestruj</button>
+        </p>
+        <p>{{info}}</p>
+
+    </div>
+</div>
+</body>
+</html>

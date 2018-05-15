@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Przepisy</string>
+    <string name="title_activity_przepisy">PrzepisyActivity</string>
+    <string-array name="actions">
+        <item>Śniadanie</item>
+        <item>Podwieczorek</item>
+        <item>Lunche</item>
+        <item>Obiad</item>
+        <item>Kolacja</item>
+    </string-array>
+</resources>
