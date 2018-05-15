@@ -6,5 +6,6 @@ public interface UserService {
 
     User getUser();
     void setUser(User user);
-
+    String setResult(Boolean result);
+    String getResult();
 }

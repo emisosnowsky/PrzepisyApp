@@ -14,6 +14,7 @@ public class UserRestController {
     private final UserService userService;
 
     UserDatabase userDatabase = new UserDatabase();
+    String sResult="";
 
     @Autowired
     public UserRestController(UserService userService) {
@@ -22,7 +23,7 @@ public class UserRestController {
 
     @CrossOrigin
     @RequestMapping(value = "/addNewUser", method = RequestMethod.POST)
-    public User addNewUser(@RequestBody User user, HttpServletResponse response){
+    public User addNewUser(@RequestBody User user, HttpServletResponse response) {
 
         //ominiecie zabezpieczen przegladarki
         response.setHeader("Access-Control-Allow-Origin", "*");
@@ -37,27 +38,31 @@ public class UserRestController {
 
     @CrossOrigin
     @RequestMapping(value = "/logIn", method = RequestMethod.POST)
+    @ResponseBody
     public User logInUser(@RequestBody User user, HttpServletResponse response) {
+
+        response.setHeader("Access-Control-Allow-Origin", "*");
 
         String login = user.getLogin();
         String password = user.getPassword();
         Boolean result;
-
         //sprawdzenie, czy w bazie wystepuja ten login z tym haslem
         result = userDatabase.searchForUser(login, password);
-
-        if(result==true){
-            System.out.println("wszystko sie zgadza, happy wszyscy");
-        } else {
-            System.out.println("niestety nie ma takiego uzytkownika");
-        }
-
-        response.setHeader("Access-Control-Allow-Origin", "*");
+        sResult = userService.setResult(result);
 
         return user;
     }
 
-
+    //GET do sprawdzenia wyniku logowania - nieskonczony
+//    @CrossOrigin
+//    @RequestMapping(value = "/logInStatus", method = RequestMethod.GET)
+//    public String checkResultOfLogin(HttpServletResponse response) {
+//
+//        response.setHeader("Access-Control-Allow-Origin", "*");
+//
+//        return sResult;
+//
+//    }
 
 
 }

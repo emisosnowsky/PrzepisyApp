@@ -38,12 +38,14 @@
         <p><input class="w3-input w3-padding-16" type="password" ng-model="password" placeholder="Hasło"></p><br/>
         <p>
             <button ng-click="logIn()" type="submit">Zaloguj sie</button>
-        </p>
 
+        </p>
+        <p>{{ response }}</p>
+        <p>{{ resultOfLogin }}</p>
         <br/><br/>
         <p>Nie masz konta? </p>
         <a href="sign_in.html" class="w3-bar-item w3-button">Zarejestruj sie</a>
-        <p>{{info}}</p>
+
 
     </div>
 </div>

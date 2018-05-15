@@ -18,10 +18,16 @@ myApp.controller('LogInController', function($scope, $http) {
             alert("failure message: "+JSON.stringify({data: data}))
         });
 
-        var info = "Zalogowano użytkownika.";
-        $scope.info = info;
         $scope.login = "";
         $scope.password = "";
-    }
 
+        //sprawdzanie wyniku zalogowania
+        // $http.get('http://localhost:8080/logInStatus').then(function (response) {
+        //     $scope.response = response;
+        //     console.log(response);
+        // }, function error(response) {
+        //     $scope.postResultMessage = "Error with status"+ response.statusText;
+        // });
+
+    }
 });
