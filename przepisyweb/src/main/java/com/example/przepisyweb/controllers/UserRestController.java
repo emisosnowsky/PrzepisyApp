@@ -6,6 +6,7 @@ import com.example.przepisyweb.models.User;
 import com.example.przepisyweb.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import sun.rmi.runtime.Log;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,7 +16,7 @@ public class UserRestController {
     private final UserService userService;
 
     UserDatabase userDatabase = new UserDatabase();
-    String sResult="";
+    String sResult;
 
     @Autowired
     public UserRestController(UserService userService) {
@@ -54,16 +55,21 @@ public class UserRestController {
         return login;
     }
 
-    //GET do sprawdzenia wyniku logowania - nieskonczony
+//    //GET do sprawdzenia wyniku logowania - nieskonczony
 //    @CrossOrigin
-//    @RequestMapping(value = "/logInStatus", method = RequestMethod.GET)
-//    public String checkResultOfLogin(HttpServletResponse response) {
+//    @RequestMapping(value = "/logInStatus", method = RequestMethod.POST)
+//    public String checkResultOfLogin(@RequestBody Login login, HttpServletResponse response) {
 //
 //        response.setHeader("Access-Control-Allow-Origin", "*");
 //
-//        return sResult;
+//        Login userLogin = userService.getLogin();
+//        Boolean result;
 //
+//        //sprawdzenie, czy w bazie wystepuja ten login z tym haslem
+//        result = userDatabase.searchForUser(login.getUsername(), login.getPassword());
+//        sResult = userService.setResult(result);
+//
+//        return sResult;
+
 //    }
-
-
 }

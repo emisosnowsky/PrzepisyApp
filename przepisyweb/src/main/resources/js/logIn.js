@@ -13,7 +13,6 @@ myApp.controller('LogInController', function($scope, $http) {
 
         res.then(function (data, status, headers, config) {
             $scope.message = data.data;
-            console.log(data.data);
         }, function error(data, status, headers, config) {
             alert("failure message: "+JSON.stringify({data: data}))
         });
@@ -21,8 +20,20 @@ myApp.controller('LogInController', function($scope, $http) {
         $scope.login = "";
         $scope.password = "";
 
+        // var sResult = $scope.sResult;
+        //
+        // var res2 = $http.post('http://localhost:8080/logInStatus', sResult);
+        //
+        // res2.then(function (data, status, headers, config) {
+        //     $scope.response = data;
+        //     console.log(data.data);
+        //     console.log(data);
+        // }, function error(data, status, headers, config) {
+        //     alert("failure message: "+JSON.stringify({data: data}))
+        // });
+
         //sprawdzanie wyniku zalogowania
-        // $http.get('http://localhost:8080/logInStatus').then(function (response) {
+        // $http.get('http://localhost:8080/logInStatus2').then(function (response) {
         //     $scope.response = response;
         //     console.log(response);
         // }, function error(response) {
@@ -30,4 +41,6 @@ myApp.controller('LogInController', function($scope, $http) {
         // });
 
     }
+
+
 });
