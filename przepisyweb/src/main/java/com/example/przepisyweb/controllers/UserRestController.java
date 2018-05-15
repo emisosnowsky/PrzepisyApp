@@ -1,6 +1,7 @@
 package com.example.przepisyweb.controllers;
 
 import com.example.przepisyweb.database.UserDatabase;
+import com.example.przepisyweb.models.Login;
 import com.example.przepisyweb.models.User;
 import com.example.przepisyweb.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,18 +40,18 @@ public class UserRestController {
     @CrossOrigin
     @RequestMapping(value = "/logIn", method = RequestMethod.POST)
     @ResponseBody
-    public User logInUser(@RequestBody User user, HttpServletResponse response) {
+    public Login logInUser(@RequestBody Login login, HttpServletResponse response) {
 
         response.setHeader("Access-Control-Allow-Origin", "*");
-
-        String login = user.getLogin();
-        String password = user.getPassword();
         Boolean result;
+
+        userService.setLogin(login);
+
         //sprawdzenie, czy w bazie wystepuja ten login z tym haslem
-        result = userDatabase.searchForUser(login, password);
+        result = userDatabase.searchForUser(login.getUsername(), login.getPassword());
         sResult = userService.setResult(result);
 
-        return user;
+        return login;
     }
 
     //GET do sprawdzenia wyniku logowania - nieskonczony

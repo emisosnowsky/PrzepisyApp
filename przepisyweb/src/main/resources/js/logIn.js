@@ -4,12 +4,12 @@ myApp.controller('LogInController', function($scope, $http) {
 
     $scope.logIn = function () {
 
-        var User = {
-            login: $scope.login,
+        var login = {
+            username: $scope.username,
             password: $scope.password
         }
 
-        var res = $http.post('http://localhost:8080/logIn', User);
+        var res = $http.post('http://localhost:8080/logIn', login);
 
         res.then(function (data, status, headers, config) {
             $scope.message = data.data;

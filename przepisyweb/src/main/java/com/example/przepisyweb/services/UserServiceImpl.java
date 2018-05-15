@@ -2,6 +2,7 @@ package com.example.przepisyweb.services;
 
 import com.example.przepisyweb.database.MySqlConnect;
 import com.example.przepisyweb.database.UserDatabase;
+import com.example.przepisyweb.models.Login;
 import com.example.przepisyweb.models.User;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import java.sql.SQLException;
 public class UserServiceImpl implements UserService{
 
     User user;
+    Login login;
     UserDatabase userDatabase = new UserDatabase();
     String resultOfLogin;
 
@@ -25,6 +27,14 @@ public class UserServiceImpl implements UserService{
     public void setUser(User user) {
 
         this.user = user;
+    }
+
+    public void setLogin(Login login){
+        this.login = login;
+    }
+
+    public Login getLogin(){
+        return login;
     }
 
     @Override
