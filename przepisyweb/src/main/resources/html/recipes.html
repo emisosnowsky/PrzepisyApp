@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="../css/app.css"/>
     <script src="../js/showRecipes.js"></script>
-    <title></title>
+    <title>Przepisy</title>
 </head>
 <body>
 
@@ -34,9 +34,13 @@
 <!-- Page content -->
 <div class="w3-content" style="max-width:1100px" align="center"><br/>
     <h1 class="w3-xlarge" align="center">Wszystkie Przepisy</h1><br/>
-    <a href="recipes/Sniadanie.html" class="w3-bar-item w3-button" >Śniadanie</a>
-    <a href="recipes/Obiad.html" class="w3-bar-item w3-button">Obiad</a>
-    <a href="recipes/Kolacja.html" class="w3-bar-item w3-button">Kolacja</a>
+
+    <!--<div class="w3-container w3-padding-64" ng-controller="ShowRecipesTypeController" ng-app="myApp" align="left">-->
+    <a href="recipesBreakfast.html" class="w3-bar-item w3-button" >Śniadanie</a>
+    <a href="recipesDinner.html" class="w3-bar-item w3-button">Obiad</a>
+    <a href="recipesSupper.html" class="w3-bar-item w3-button">Kolacja</a>
+
+    <!--</div>-->
     <div class="w3-container w3-padding-64" ng-controller="ShowRecipesController" ng-app="myApp" align="left">
         <ul class="list-group list-group-flush">
             <li class="list-group-item" ng-repeat="recipe in response">

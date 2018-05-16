@@ -45,15 +45,41 @@ public class RecipeRestController {
         return databaseRecipe.showRecipes();
     }
 
-    //zwraca dobrą liste przepisow z odpowiednim typem ale nie wyswietla sie ta strona - do zmiany w js'ie i html'u
     @CrossOrigin
-    @RequestMapping(value = "/recipes/{type}", method = RequestMethod.GET)
-    public List showRecipesType(@PathVariable("type") String type, HttpServletResponse response){
+    @RequestMapping(value = "/Sniadanie", method = RequestMethod.GET)
+    public List showRecipesSniadanie(HttpServletResponse response){
 
-        //ominiecie zabezpieczen przegladarki
         response.setHeader("Access-Control-Allow-Origin", "*");
-        String typeSplieted = type.split("\\.")[0];
-
-        return databaseRecipe.showRecipes(typeSplieted);
+        return databaseRecipe.showRecipes("Sniadanie");
     }
+
+    @CrossOrigin
+    @RequestMapping(value = "/Obiad", method = RequestMethod.GET)
+    public List showRecipesObiad(HttpServletResponse response){
+
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        return databaseRecipe.showRecipes("Obiad");
+    }
+
+    @CrossOrigin
+    @RequestMapping(value = "/Kolacja", method = RequestMethod.GET)
+    public List showRecipesKolacja(HttpServletResponse response){
+
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        return databaseRecipe.showRecipes("Kolacja");
+    }
+
+
+    //zwraca dobrą liste przepisow z odpowiednim typem ale nie wyswietla sie ta strona - do zmiany w js'ie i html'u
+    //strona np. http://localhost:8080/recipes/Obiad.html
+//    @CrossOrigin
+//    @RequestMapping(value = "/recipes/{type}", method = RequestMethod.GET)
+//    public List showRecipesType(@PathVariable("type") String type, HttpServletResponse response){
+//
+//        //ominiecie zabezpieczen przegladarki
+//        response.setHeader("Access-Control-Allow-Origin", "*");
+//        String typeSplieted = type.split("\\.")[0];
+//
+//        return databaseRecipe.showRecipes(typeSplieted);
+//    }
 }
