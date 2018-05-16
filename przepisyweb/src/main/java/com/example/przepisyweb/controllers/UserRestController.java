@@ -1,12 +1,11 @@
 package com.example.przepisyweb.controllers;
 
-import com.example.przepisyweb.database.UserDatabase;
+import com.example.przepisyweb.database.DatabaseUser;
 import com.example.przepisyweb.models.Login;
 import com.example.przepisyweb.models.User;
 import com.example.przepisyweb.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import sun.rmi.runtime.Log;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,7 +14,7 @@ public class UserRestController {
 
     private final UserService userService;
 
-    UserDatabase userDatabase = new UserDatabase();
+    DatabaseUser userDatabase = new DatabaseUser();
     String sResult;
 
     @Autowired

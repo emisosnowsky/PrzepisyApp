@@ -19,4 +19,6 @@ public class RecipeServiceImpl implements RecipeService {
     public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
     }
+
+
 }

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="../css/app.css"/>
-    <script src="../js/addRecipe.js"></script>
+    <script src="../js/showRecipes.js"></script>
     <title></title>
 </head>
 <body>
@@ -30,17 +30,21 @@
     </div>
 </header>
 
+
 <!-- Page content -->
 <div class="w3-content" style="max-width:1100px">
-    <div class="w3-container w3-padding-64" ng-controller="AddRecipeController" ng-app="myApp">
-        <h1>Dodaj przepis</h1><br>
-        <p><input class="w3-input w3-padding-16" type="text" ng-model ="title" placeholder="Tytuł przepisu"></p>
-        <p><input class="w3-input w3-padding-16" type="text" ng-model ="description" placeholder="Opis przepisu"></p>
-        <p><input class="w3-input w3-padding-16" type="text" ng-model ="image" placeholder="Obrazek"></p><br/>
-        <p><button ng-click="addRecipe()" type="submit">Dodaj przepis</button></p>
-        <p>{{info}}</p>
+    <div class="w3-container w3-padding-64" ng-controller="ShowRecipesController" ng-app="myApp">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item" ng-repeat="recipe in response">
+                <span class="w3-tag w3-light-grey">{{recipe.title}}</span><br/>
+                <!--{{recipe.title}}-->
+                {{recipe.description}}
+            </li>
+        </ul>
 
+
+            <!--<div ng-repeat="item in response track by $index">-->
+                <!--{{ response[$index]}}-->
+            <!--</div>-->
     </div>
 </div>
-</body>
-</html>
