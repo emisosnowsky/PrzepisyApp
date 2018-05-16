@@ -8,7 +8,7 @@ import java.util.Properties;
 public class DatabaseConnetion {
     // init database constants
     private static final String DATABASE_DRIVER = "com.mysql.jdbc.Driver";
-    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/recipes";
+    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/recipes?autoReconnect=true&useSSL=false";
     private static final String USERNAME = "root";
     private static final String PASSWORD = "root";
     private static final String MAX_POOL = "250";

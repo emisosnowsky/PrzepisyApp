@@ -45,4 +45,15 @@ public class RecipeRestController {
         return databaseRecipe.showRecipes();
     }
 
+    //zwraca dobrą liste przepisow z odpowiednim typem ale nie wyswietla sie ta strona - do zmiany w js'ie i html'u
+    @CrossOrigin
+    @RequestMapping(value = "/recipes/{type}", method = RequestMethod.GET)
+    public List showRecipesType(@PathVariable("type") String type, HttpServletResponse response){
+
+        //ominiecie zabezpieczen przegladarki
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        String typeSplieted = type.split("\\.")[0];
+
+        return databaseRecipe.showRecipes(typeSplieted);
+    }
 }

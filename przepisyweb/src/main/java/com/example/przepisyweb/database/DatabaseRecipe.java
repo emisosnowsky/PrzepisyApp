@@ -37,13 +37,10 @@ public class DatabaseRecipe {
         }
     }
 
-    public List showRecipes() {
+
+    public List getAllRecipes(String query){
         DatabaseConnetion mysqlConnect = new DatabaseConnetion();
-
-        String query = " select * from recipes.recipe";
-//        Map<Integer, Recipe> recipes = new HashMap<Integer, Recipe>();
         List<Recipe> list = new ArrayList<Recipe>();
-
         try {
             PreparedStatement statement = mysqlConnect.connect().prepareStatement(query);
             ResultSet rs = statement.executeQuery();
@@ -62,6 +59,18 @@ public class DatabaseRecipe {
         }
 
         return list;
+    }
+
+    public List showRecipes() {
+
+        String query = " select * from recipes.recipe order by recipe.id DESC";
+        return getAllRecipes(query);
+    }
+
+    public List showRecipes(String type) {
+
+        String query = " select * from recipes.recipe where type='"+type+"' order by recipe.id DESC";
+        return getAllRecipes(query);
     }
 
 
