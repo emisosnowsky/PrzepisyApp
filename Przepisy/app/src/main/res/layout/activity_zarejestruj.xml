@@ -140,7 +140,7 @@
             />
 
         <Button
-            android:id="@+id/logInButton"
+            android:id="@+id/signInButton"
             android:text="Zarejestruj się"
             android:textColor="#FFFF"
             android:textSize="14sp"
